@@ -8,3 +8,9 @@
 # 5) variables / keywords / identifiers / operator / data types / 
 # 6) input and output
 
+# 1) what is a programming language 
+#  --->  a programming language is formal language that provides instruction for a computer to execute
+# its how humans communicate with computers to create software application and other technology 
+
+# 
+# 

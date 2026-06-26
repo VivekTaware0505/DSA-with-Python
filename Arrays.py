@@ -41,3 +41,29 @@ def largest_element(arr):
 arr = [10, 5, 20, 8]
 
 print("Largest:", largest_element(arr))
+
+"""
+Q.2 Find the minimum element.
+
+Example: we have
+
+Input:
+[10,5,20,8]
+
+Output:
+5
+
+"""
+
+def smallest_element(arr):
+    smallest = arr[0]
+
+    for num in arr:
+        if num < smallest:
+            smallest = num
+
+    return smallest
+
+arr = [10,5,20,8]
+
+print(smallest_element(arr))

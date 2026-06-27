@@ -93,3 +93,24 @@ def second_largest(arr):
 arr=[10,5,20,8]
 
 print(second_largest(arr))
+
+
+"""
+Q.4 Reverse an Array
+
+trying to reverse array list using while loop
+that print the list in revers 
+
+"""
+
+arr = [1,2,3,4,5]
+
+left = 0
+right = len(arr)-1
+
+while left < right:
+    arr[left], arr[right] = arr[right], arr[left]
+    left += 1
+    right -= 1
+
+print(arr)

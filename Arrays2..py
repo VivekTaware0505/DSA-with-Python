@@ -27,7 +27,7 @@ print(move_zeroes(arr))
 
 
 """
-Move Zeroes to the End
+Q 07 Move Zeroes to the End
 
 give an array, move all 0s at the end while keeping the order of the non-zero elements the same 
 
@@ -55,3 +55,59 @@ def move_zeros(nums):
 
 nums = [ 0, 1, 0, 3, 12]
 print(move_zeroes(nums))
+
+
+
+
+"""
+Q .8  Remove Duplicate Elements from sorted Array 
+
+give a sorted array, remove the duplicate element in place without using another array
+
+that means duplicate elements are always next to each other 
+
+e.g. 1 1 2 2 3 4 4
+we don't need to search the whole array
+we only compare neighboring element
+
+Algorithm We Used
+
+1. Keep i at index 0.
+
+2. Traverse array using j.
+
+3. If nums[i] != nums[j]
+
+      Move i forward.
+
+      Copy nums[j] to nums[i].
+
+4. Continue until end.
+
+5. Return i + 1.
+
+"""
+
+
+def remove_duplicates(numR):
+    if len(numR) == 0:
+        return 0
+    i = 0
+
+    for j in range (1, len(numR)):
+
+        if numR[i] != numR[j]:
+            i += 1
+
+            numR[i] = numR[j]
+
+    return i + 1
+
+numR = [1, 1, 2, 2, 3, 4, 4, 8, 9, 125]    
+
+k = remove_duplicates(numR)
+
+print(k)
+print(numR[:k])
+
+

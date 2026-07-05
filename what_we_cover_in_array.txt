@@ -1,0 +1,17 @@
+Array Roadmap
+
+✅ Largest Element
+✅ Smallest Element
+✅ Second Largest Element
+✅ Reverse Array
+✅ Check if Array is Sorted
+✅ Move Zeroes to the End (Today's topic)
+✅ Remove Duplicates from Sorted Array
+✅ Rotate Array
+✅ Missing Number
+✅ Two Sum
+✅ Best Time to Buy and Sell Stock
+✅ Kadane's Algorithm
+✅ Majority Element
+✅ Prefix Sum
+✅ Sliding Window

@@ -42,6 +42,8 @@ arr = [10, 5, 20, 8]
 
 print("Largest:", largest_element(arr))
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
 """
 Q.2 Find the minimum element.
 
@@ -68,7 +70,7 @@ arr = [10,5,20,8]
 
 print(smallest_element(arr))
 
-
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 """
 Q.3 Find the second largest number.
@@ -94,7 +96,7 @@ arr=[10,5,20,8]
 
 print(second_largest(arr))
 
-
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 """
 Q.4 Reverse an Array
 
@@ -115,6 +117,8 @@ while left < right:
 
 print(arr)
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
 """
 Q.5 Remove Duplicates
 """
@@ -129,3 +133,4 @@ for num in arr:
 
 print(result)
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

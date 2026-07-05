@@ -1,0 +1,108 @@
+Array Interview Questions
+
+
+1. Largest Element in an Array
+
+How do you find the largest element in an array?
+What is the time complexity?
+What is the space complexity?
+Can the array contain negative numbers?
+What happens if the array has only one element?
+Why can't Binary Search be used?
+Can you find the largest element in one traversal?
+What is the brute-force approach?
+What is the optimized approach?
+Which data structure is used?
+
+
+2. Smallest Element in an Array
+
+How do you find the smallest element?
+What is the time complexity?
+What is the space complexity?
+Can the array contain negative numbers?
+Can you solve it in one traversal?
+What is the brute-force approach?
+What is the optimized approach?
+Which variable stores the minimum value?
+What happens if the array has only one element?
+Why is O(n) the best possible complexity?
+
+
+3. Second Largest Element
+
+How do you find the second largest element?
+Why do we use two variables?
+What if duplicate largest elements exist?
+What if all elements are the same?
+What is the time complexity?
+What is the space complexity?
+Can it be solved in one traversal?
+What is the brute-force approach?
+What is the optimized approach?
+Why shouldn't we sort the array first?
+
+
+
+4. Reverse Array
+
+How do you reverse an array?
+Which technique is used?
+Why do we use two pointers?
+What is the time complexity?
+What is the space complexity?
+Can it be reversed using an extra array?
+What happens when the pointers meet?
+Can recursion be used?
+What is the brute-force approach?
+What is the optimized approach?
+
+
+5. Check if Array is Sorted
+
+How do you check whether an array is sorted?
+What is the time complexity?
+What is the space complexity?
+Can duplicate elements exist?
+What if one element is smaller than its previous element?
+What is the brute-force approach?
+What is the optimized approach?
+Can an array with one element be considered sorted?
+Can an empty array be considered sorted?
+Why do we compare adjacent elements?
+
+
+
+
+6. Move Zeroes to the End
+
+How do you move all zeroes to the end?
+Which technique is used?
+Why do we use two pointers?
+What is the role of each pointer?
+What is the time complexity?
+What is the space complexity?
+Is the order of non-zero elements maintained?
+Can this problem be solved without using extra space?
+What is the brute-force approach?
+What is the optimized approach?
+
+
+
+7. Remove Duplicates from Sorted Array
+
+How do you remove duplicates from a sorted array?
+Why should the array be sorted?
+Which technique is used?
+Why do we use two pointers?
+What is the role of pointer i?
+What is the role of pointer j?
+What is the time complexity?
+What is the space complexity?
+Can this problem be solved without extra space?
+What is the brute-force approach?
+What is the optimized approach?
+What happens if the array contains no duplicates?
+What happens if all elements are the same?
+Why is this called an in-place algorithm?
+Why don't we create another array?

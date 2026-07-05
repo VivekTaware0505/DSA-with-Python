@@ -25,6 +25,8 @@ def move_zeroes(arr):
 arr = [0,1,0,3,12]
 print(move_zeroes(arr))
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
 
 """
 Q 07 Move Zeroes to the End
@@ -57,7 +59,7 @@ nums = [ 0, 1, 0, 3, 12]
 print(move_zeroes(nums))
 
 
-
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 """
 Q .8  Remove Duplicate Elements from sorted Array 
@@ -107,7 +109,8 @@ numR = [1, 1, 2, 2, 3, 4, 4, 8, 9, 125]
 
 k = remove_duplicates(numR)
 
-print(k)
+# print(k) to checking list 
 print(numR[:k])
 
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

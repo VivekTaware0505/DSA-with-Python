@@ -71,3 +71,77 @@ def left_rotate(arr):
 arr = [1]
 
 print(left_rotate(arr))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+left rotate an array by K position 
+
+Q 1 give an array and an integer K rotate the array to the left by K position 
+
+every rotation moves the first element to the end 
+
+
+Method : - Using an Extra Array
+store the first K elements
+shift the remaining elements to the left
+copy the stored elements to the end 
+
+"""
+
+def left_rotate(arr, k):
+    n = len(arr)
+
+    k = k % n
+
+    temp = arr[:k]
+
+    arr = arr[k:] + temp
+
+    return arr
+
+
+arr = [1,2,3,4,5]
+
+print(left_rotate(arr,2))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+Method 2 : - Reversal Alogorithm 
+
+instead of shifting element one by one reverse parts of the array
+
+
+"""
+
+def reverse(arr, start, end):
+    while start < end:
+        arr[start], arr[end] = arr[end], arr[start]
+        start += 1
+        end -= 1
+
+
+def left_rotate(arr, k):
+    n = len(arr)
+
+    k = k % n
+
+    reverse(arr, 0, k - 1)
+
+    reverse(arr, k, n - 1)
+
+    reverse(arr, 0, n - 1)
+
+    return arr
+
+
+arr = [1,2,3,4,5]
+
+print(left_rotate(arr,2))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+

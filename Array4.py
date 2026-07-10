@@ -130,3 +130,79 @@ matrix = [
 ]
 
 print(set_zeroes(matrix))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+Optimal Approach (interview favorite )
+instead of using two extra arrays
+
+first row first column as array makers 
+
+python program 
+
+
+"""
+
+def setZeroes(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    first_col = False
+
+    # Mark rows and columns
+    for i in range(rows):
+        if matrix[i][0] == 0:
+            first_col = True
+
+        for j in range(1, cols):
+            if matrix[i][j] == 0:
+                matrix[i][0] = 0
+                matrix[0][j] = 0
+
+    # Fill zeroes
+    for i in range(rows - 1, -1, -1):
+        for j in range(cols - 1, 0, -1):
+            if matrix[i][0] == 0 or matrix[0][j] == 0:
+                matrix[i][j] = 0
+
+        if first_col:
+            matrix[i][0] = 0
+
+    return matrix
+
+
+matrix = [
+    [1,1,1],
+    [1,0,1],
+    [1,1,1]
+]
+
+print(setZeroes(matrix))
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+Common Interview Questions
+Q1. Why can't we directly make rows and columns zero?
+
+Because newly created zeroes would incorrectly influence other rows and columns.
+
+Q2. Why traverse from bottom-right in the optimal solution?
+
+To avoid overwriting the marker information in the first row and first column before it's fully used.
+
+Q3. Which solution should you explain first?
+
+Start with:
+
+Brute Force
+Better (O(m+n) space)
+Optimal (O(1) space)
+
+This demonstrates your problem-solving and optimization skills.
+
+"""

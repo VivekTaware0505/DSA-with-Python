@@ -41,6 +41,7 @@ arr = [1, 2, 3]
 print(next_permutation(arr))
 
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 
 """
@@ -83,3 +84,49 @@ def longest_consecutive(nums):
 arr = [100,4,200,1,3,2]
 
 print(longest_consecutive(arr))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+set Matrix Zeros 
+
+Q.1 given an m x n matrix if an element is 0 set is entire row and column to 0
+
+Make the whole row zero.
+Make the whole column zero.
+"""
+
+def set_zeroes(matrix):
+
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    row = [False] * rows
+    col = [False] * cols
+
+    # Mark rows and columns
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] == 0:
+                row[i] = True
+                col[j] = True
+
+    # Update matrix
+    for i in range(rows):
+        for j in range(cols):
+            if row[i] or col[j]:
+                matrix[i][j] = 0
+
+    return matrix
+
+
+matrix = [
+    [1,1,1],
+    [1,0,1],
+    [1,1,1]
+]
+
+print(set_zeroes(matrix))

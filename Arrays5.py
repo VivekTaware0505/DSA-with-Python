@@ -162,3 +162,37 @@ def missing_number(arr, n):
 arr = [1,2,4,5]
 
 print(missing_number(arr,5))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+XOR Method
+
+Remember these properties:
+
+A ^ A = 0
+
+A ^ 0 = A
+
+If we XOR all numbers from 1 to N and XOR all array elements, every common number cancels out.
+
+Only the missing number remains.
+
+"""
+
+def missing_number(arr, n):
+
+    xor1 = 0
+    xor2 = 0
+
+    for i in range(1, n + 1):
+        xor1 ^= i
+
+    for num in arr:
+        xor2 ^= num
+
+    return xor1 ^ xor2
+
+arr = [1,2,4,5]
+
+print(missing_number(arr,5))

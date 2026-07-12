@@ -107,6 +107,7 @@ arr2 = [2,2,3,5,6]
 
 print(intersection(arr1, arr2))
 
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 
 """
@@ -130,6 +131,33 @@ def missing_number(arr, n):
 
         if num not in arr:
             return num
+
+arr = [1,2,4,5]
+
+print(missing_number(arr,5))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+ 
+
+"""
+Hashing 
+create a frequency array 
+mark every visited number 
+
+The index that remains 0 is the missing number
+
+
+"""
+def missing_number(arr, n):
+
+    freq = [0] * (n + 1)
+
+    for num in arr:
+        freq[num] = 1
+
+    for i in range(1, n + 1):
+        if freq[i] == 0:
+            return i
 
 arr = [1,2,4,5]
 

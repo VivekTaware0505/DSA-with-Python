@@ -106,3 +106,31 @@ arr1 = [1,2,2,3,4,5]
 arr2 = [2,2,3,5,6]
 
 print(intersection(arr1, arr2))
+
+
+
+"""
+Q you are given an array containing N-1 numbers
+
+the numbers are from 1 to N only on number id missing
+Find the missing number
+
+Input:
+arr = [1,2,4,5]
+
+check every number from 1 to N 
+if it is not present in the array return it 
+
+
+"""
+
+def missing_number(arr, n):
+
+    for num in range(1, n + 1):
+
+        if num not in arr:
+            return num
+
+arr = [1,2,4,5]
+
+print(missing_number(arr,5))

@@ -245,3 +245,103 @@ intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]
 newInterval = [4,8]
 
 print(insert(intervals, newInterval))
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Next Permutation
+
+Q .1 Given an array representing a permutation of numbers, rearrange it into the next lexicographically greater permutation.
+
+If no greater permutation exists (i.e., it's already the largest), rearrange it to the smallest possible order (ascending).
+
+The modification must be in-place (without using extra space).
+
+Example 1
+nums = [1,2,3]
+
+Output
+
+[1,3,2]
+
+Because:
+
+123
+132   ← Next greater permutation
+213
+231
+312
+321
+Example 2
+nums = [3,2,1]
+
+Output
+
+[1,2,3]
+
+Reason:
+
+321
+
+is already the largest permutation, so return the smallest.
+
+Example 3
+nums = [1,1,5]
+
+Output
+
+[1,5,1]
+What is Lexicographical Order?
+
+It is dictionary order.
+
+Example:
+
+123
+132
+213
+231
+312
+321
+
+Each next number is the next permutation.
+
+"""
+
+
+def nextPermutation(nums):
+
+    n = len(nums)
+
+    # Step 1: Find pivot
+    i = n - 2
+    while i >= 0 and nums[i] >= nums[i + 1]:
+        i -= 1
+
+    # Step 2: Find next greater element
+    if i >= 0:
+        j = n - 1
+        while nums[j] <= nums[i]:
+            j -= 1
+
+        nums[i], nums[j] = nums[j], nums[i]
+
+    # Step 3: Reverse suffix
+    left = i + 1
+    right = n - 1
+
+    while left < right:
+        nums[left], nums[right] = nums[right], nums[left]
+        left += 1
+        right -= 1
+
+
+nums = [1,2,3]
+
+nextPermutation(nums)
+
+print(nums)

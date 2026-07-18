@@ -355,7 +355,7 @@ print("------------------------------Vivek Learning DSA Python------------------
 
 Dutch National Flag Algorithm (Sort Colors)
 
-You are given an array containing only:
+Q.1 You are given an array containing only:
 
 """
 def sortColors(nums):
@@ -389,3 +389,40 @@ nums = [2,0,2,1,1,0]
 sortColors(nums)
 
 print(nums)
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Majority Element (Moore's Voting Algorithm)
+
+Given an array of size n, find the majority element.
+
+A majority element is an element that appears more than n/2 times.
+
+You can assume that a majority element always exists.
+
+"""
+
+def majorityElement(nums):
+    candidate = None
+    count = 0
+
+    for num in nums:
+        if count == 0:
+            candidate = num
+
+        if num == candidate:
+            count += 1
+        else:
+            count -= 1
+
+    return candidate
+
+
+nums = [2,2,1,1,1,2,2]
+
+print(majorityElement(nums))

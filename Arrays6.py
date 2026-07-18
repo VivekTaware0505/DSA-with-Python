@@ -123,3 +123,125 @@ def generate(numRows):
 
 
 print(generate(5))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Merge Overlapping Intervals
+
+Q.1 you are given an array of intervels where each interval is represented as 
+
+[start, end]
+
+If two intervals overlap, merge them into a single interval.
+
+Return all merged intervals.
+
+Example 1
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+Current=[1,3]
+
+↓
+
+Merge
+
+↓
+
+Current=[1,6]
+
+↓
+
+Store
+
+↓
+
+[8,10]
+
+↓
+
+Store
+
+↓
+
+[15,18]
+
+
+
+
+"""
+
+def merge(intervals):
+
+    intervals.sort()
+
+    result = [intervals[0]]
+
+    for start, end in intervals[1:]:
+
+        last_end = result[-1][1]
+
+        if start <= last_end:
+
+            result[-1][1] = max(last_end, end)
+
+        else:
+
+            result.append([start, end])
+
+    return result
+
+
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+print(merge(intervals))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Insert Interval
+
+you are given a list of non overlapping intervals sorted by start time and a new interval
+insert the new interval into the correct position and merge if necessary 
+
+Example 1
+intervals = [[1,3],[6,9]]
+newInterval = [2,5]
+
+"""
+def insert(intervals, newInterval):
+
+    result = []
+
+    i = 0
+    n = len(intervals)
+
+    # Step 1: Add intervals before newInterval
+    while i < n and intervals[i][1] < newInterval[0]:
+        result.append(intervals[i])
+        i += 1
+
+    # Step 2: Merge overlapping intervals
+    while i < n and intervals[i][0] <= newInterval[1]:
+        newInterval[0] = min(newInterval[0], intervals[i][0])
+        newInterval[1] = max(newInterval[1], intervals[i][1])
+        i += 1
+
+    # Step 3: Add merged interval
+    result.append(newInterval)
+
+    # Step 4: Add remaining intervals
+    while i < n:
+        result.append(intervals[i])
+        i += 1
+
+    return result
+
+
+intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]
+newInterval = [4,8]
+
+print(insert(intervals, newInterval))

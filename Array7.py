@@ -177,3 +177,90 @@ def max_area(height):
 
 height = [1,8,6,2,5,4,8,3,7]
 print("Maximum Water:", max_area(height))
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Trapping Rain Water
+
+Q.1 you are given an array height[], where each element represent the height of a building 
+after it rains, water gets trapped between the buildings 
+your task is to calculate the total amount of rainwater trapped 
+
+Example
+Input:
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+
+Output:
+6
+
+Key Idea
+
+Water can only be trapped if there is:
+
+A taller building on the left.
+A taller building on the right.
+
+The water level above a building is:
+
+Water = min(Max Left Height, Max Right Height) - Current Height
+
+If this value is negative, treat it as 0.
+
+Approach (Two Pointer - Optimal)
+
+We use two pointers:
+
+left = 0
+right = n - 1
+
+Also maintain:
+
+left_max
+right_max
+Steps
+Compare height[left] and height[right].
+Move the side with the smaller height.
+Update the maximum height seen so far.
+If the current height is smaller than the maximum, water is trapped.
+Add trapped water to the answer.
+Continue until left meets right.
+
+"""
+
+def trap(height):
+    left = 0
+    right = len(height) - 1
+
+    left_max = 0
+    right_max = 0
+    water = 0
+
+    while left < right:
+
+        if height[left] < height[right]:
+
+            if height[left] >= left_max:
+                left_max = height[left]
+            else:
+                water += left_max - height[left]
+
+            left += 1
+
+        else:
+
+            if height[right] >= right_max:
+                right_max = height[right]
+            else:
+                water += right_max - height[right]
+
+            right -= 1
+
+    return water
+
+
+height = [3,0,2,0,4]
+print("Water Trapped:", trap(height))

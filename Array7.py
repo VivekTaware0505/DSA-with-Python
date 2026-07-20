@@ -121,3 +121,59 @@ nums = [100, 4, 200, 1, 3, 2]
 print("Longest Consecutive Length:", longest_consecutive(nums))
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Container with Most Water 
+
+Q.1 you are given an array height [], where each element represent the height of a vertical line
+Choose any two lines so that together with the x-axis they from a container 
+your task is to find the maximum amount of water that the container can store 
+
+Example
+Input:
+height = [1,8,6,2,5,4,8,3,7]
+
+Output:
+49
+
+
+Approach
+
+We use the Two Pointer Technique.
+
+Steps
+Place one pointer at the left end.
+Place another pointer at the right end.
+Calculate the current area.
+Update the maximum area.
+Move the pointer with the smaller height inward.
+Repeat until the pointers meet.
+Why move the smaller height?
+
+The shorter line limits the water. Moving the taller line cannot increase the height limit, 
+but moving the shorter line may find a taller line and increase the area.
+
+"""
+
+def max_area(height):
+    left = 0
+    right = len(height) - 1
+    max_water = 0
+
+    while left < right:
+        width = right - left
+        area = min(height[left], height[right]) * width
+        max_water = max(max_water, area)
+
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return max_water
+
+
+height = [1,8,6,2,5,4,8,3,7]
+print("Maximum Water:", max_area(height))

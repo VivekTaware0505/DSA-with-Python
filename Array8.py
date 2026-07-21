@@ -53,3 +53,46 @@ print("Starting Station:", can_complete_circuit(gas, cost))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 
+"""
+Jump Game I 
+
+This is one of the most popular Greedy Algorithm interview questions. It tests whether you can determine if the last index of an array is reachable.
+
+
+
+Q.2 You are given an array nums.
+
+Each element represents the maximum number of steps you can jump forward from that position.
+
+Your task is to determine whether you can reach the last index starting from the first index.
+
+Return True if you can reach the end.
+Return False otherwise.
+Example
+Input:
+nums = [2,3,1,1,4]
+
+Output:
+True
+
+
+"""
+def can_jump(nums):
+    max_reach = 0
+
+    for i in range(len(nums)):
+        # Current position cannot be reached
+        if i > max_reach:
+            return False
+
+        # Update the farthest reachable position
+        max_reach = max(max_reach, i + nums[i])
+
+    return True
+
+
+nums = [2, 3, 1, 1, 4]
+print("Can Reach End:", can_jump(nums))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+

@@ -96,3 +96,28 @@ print("Can Reach End:", can_jump(nums))
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
+
+"""
+
+Candy 
+
+The Candy problem is a classic Greedy Algorithm interview question. It is considered one of the harder array problems because you need to satisfy two conditions at the same time.
+
+
+
+Q. 3 There are N children standing in a line.
+
+Each child has a rating.
+
+You have to distribute candies according to these rules:
+
+Every child must get at least one candy.
+If a child has a higher rating than an adjacent child, they must receive more candies than that neighbor.
+
+Your task is to find the minimum number of candies needed.
+
+"""
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+

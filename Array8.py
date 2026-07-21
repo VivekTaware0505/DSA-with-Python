@@ -121,3 +121,61 @@ Your task is to find the minimum number of candies needed.
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
+
+
+
+"""
+sliding window maximum
+
+Q.1  you are given 
+An integer array nums
+A window size k
+
+The window moves one position at a time from left to right.
+
+For each window, find the maximum element.
+
+Example
+Input:
+nums = [1,3,-1,-3,5,3,6,7]
+k = 3
+
+Output:
+[3,3,5,5,6,7]
+
+
+
+"""
+from collections import deque
+
+def max_sliding_window(nums, k):
+    dq = deque()
+    result = []
+
+    for i in range(len(nums)):
+
+        # Remove indices outside the current window
+        while dq and dq[0] <= i - k:
+            dq.popleft()
+
+        # Remove smaller elements
+        while dq and nums[dq[-1]] < nums[i]:
+            dq.pop()
+
+        dq.append(i)
+
+        # Window is complete
+        if i >= k - 1:
+            result.append(nums[dq[0]])
+
+    return result
+
+
+nums = [1,3,-1,-3,5,3,6,7]
+k = 3
+
+print("Maximums:", max_sliding_window(nums, k))
+
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

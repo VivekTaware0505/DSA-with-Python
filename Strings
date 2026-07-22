@@ -1,1 +1,238 @@
+Module :- 2 Strings in DSA With python
 
+introductio to String 
+
+
+1. What is a String?
+
+A String is a sequence (collection) of characters.
+
+A character can be:
+
+Letters (A-Z, a-z)
+Numbers (0-9)
+Symbols (@, #, $, %)
+Spaces
+
+In Python, strings are written inside single quotes (' ') or double quotes (" ").
+
+Example
+name = "Vivek"
+
+or
+
+name = 'Vivek'
+
+Here,
+
+V i v e k
+
+These five characters together form one string.
+
+2. Why Do We Need Strings?
+
+Imagine creating applications like:
+
+WhatsApp
+Instagram
+Gmail
+Facebook
+Google Search
+ChatGPT
+
+All of these process text, and text is stored as strings.
+
+Without strings, we cannot:
+
+Store names
+Store passwords
+Send messages
+Search words
+Validate email addresses
+3. Real-Life Example
+
+Think about your own details.
+
+Name : Vivek Taware
+
+The computer stores this as:
+
+name = "Vivek Taware"
+
+Another example:
+
+Email:
+vivek@gmail.com
+
+Stored as:
+
+email = "vivek@gmail.com"
+
+Even your phone number can be stored as a string if you don't perform calculations on it:
+
+phone = "9876543210"
+4. Characteristics of Strings
+1. Ordered
+
+Characters have fixed positions.
+
+Example:
+
+word = "Python"
+Character	Position (Index)
+P	0
+y	1
+t	2
+h	3
+o	4
+n	5
+
+Every character has its own index.
+
+2. Immutable
+
+A string cannot be changed after it is created.
+
+Example:
+
+name = "Python"
+
+Trying to change one character:
+
+name[0] = "J"
+
+This gives an error because strings are immutable.
+
+Instead, create a new string:
+
+name = "Jython"
+3. Iterable
+
+We can access every character one by one.
+
+Example:
+
+for ch in "Python":
+    print(ch)
+
+Output:
+
+P
+y
+t
+h
+o
+n
+5. String Indexing
+
+Each character has an index.
+
+String
+
+P  y  t  h  o  n
+0  1  2  3  4  5
+
+Python also supports negative indexing.
+
+P   y   t   h   o   n
+-6 -5 -4 -3 -2 -1
+
+Example:
+
+word = "Python"
+
+print(word[0])
+print(word[3])
+print(word[-1])
+
+Output:
+
+P
+h
+n
+6. String Length
+
+To find the number of characters:
+
+word = "Python"
+
+print(len(word))
+
+Output:
+
+6
+7. Common String Operations
+Concatenation (Joining)
+first = "Hello"
+second = "World"
+
+print(first + " " + second)
+
+Output:
+
+Hello World
+Repetition
+print("Hi " * 3)
+
+Output:
+
+Hi Hi Hi
+Membership
+text = "Python"
+
+print("P" in text)
+print("z" in text)
+
+Output:
+
+True
+False
+8. Solved Example Program
+Problem
+
+Write a Python program to:
+
+Store your name.
+Print the name.
+Print the first character.
+Print the last character.
+Print the length of the string.
+Program
+name = "Vivek"
+
+print("Name:", name)
+print("First Character:", name[0])
+print("Last Character:", name[-1])
+print("Length:", len(name))
+Output
+Name: Vivek
+First Character: V
+Last Character: k
+Length: 5
+9. Time & Space Complexity
+
+For the operations we learned today:
+
+Operation	Time Complexity
+Access character	O(1)
+Find length (len)	O(1)
+Traverse string	O(n)
+Concatenate two strings	O(n + m)
+10. Interview Tips
+Strings in Python are immutable.
+Indexing starts from 0.
+Negative indexing starts from -1.
+A string is also an iterable, so it works with loops.
+Most interview problems involve traversing strings efficiently.
+11. Practice Questions
+Question 1
+text = "Computer"
+
+Print:
+
+First character
+Last character
+Length
+Question 2
+
+Print every character using a for loop.

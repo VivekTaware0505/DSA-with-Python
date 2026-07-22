@@ -54,5 +54,26 @@ print("------------------------------Vivek Learning DSA Python------------------
 for ch in "Python":
     print(ch)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+Q.1 count volwels in a string 
+
+"""
+text = "Python Programming"
+
+vowels = "aeiouAEIOU"
+
+count = 0
+
+for ch in text:
+    if ch in vowels:
+        count += 1
+
+print("Total Vowels:", count)
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

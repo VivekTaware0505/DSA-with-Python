@@ -236,3 +236,36 @@ Length
 Question 2
 
 Print every character using a for loop.
+
+
+Topic 2: String Operations ⭐⭐⭐
+
+Today, we'll learn the most important string operations that are used in Python programming and DSA interviews.
+
+These operations are the building blocks for almost every string problem.
+
+1. What are String Operations?
+
+String Operations are actions we perform on strings, such as:
+
+Accessing characters
+Slicing
+Concatenation
+Repetition
+Searching
+Comparison
+Converting case
+Replacing text
+Splitting and joining
+
+These operations are used in almost every interview question related to strings.
+
+2. Accessing Characters (Indexing)
+
+Every character has an index.
+
+String = "Python"
+
+Character :  P   y   t   h   o   n
+Index     :  0   1   2   3   4   5
+Negative  : -6  -5  -4  -3  -2  -1

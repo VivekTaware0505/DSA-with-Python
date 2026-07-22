@@ -305,3 +305,168 @@ for ch in text:
         break
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+Topic 4 String Immutability 
+
+
+This is one of the most commonly asked Python interview concepts. Interviewers often ask:
+
+Why are Python strings immutable?
+What are the advantages of immutable strings?
+How do you modify a string if it is immutable?
+
+
+
+Learning Objectives
+
+After this topic, you will understand:
+
+What is immutability?
+Why Python strings are immutable.
+Benefits of immutable strings.
+How to "modify" a string correctly.
+Common interview questions.
+Advanced examples.
+1. What is Immutability?
+
+Immutability means:
+
+Once an object is created, it cannot be changed.
+
+
+Why Does Python Make Strings Immutable?
+
+Python designers made strings immutable for several important reasons.
+
+A. Better Performance
+
+If many variables contain the same string:
+
+a = "Python"
+b = "Python"
+c = "Python"
+
+Python can reuse the same string in memory instead of creating three separate copies.
+
+This saves memory
+
+
+Safe Data
+
+Suppose your password is:
+
+password = "Admin@123"
+
+If strings were mutable, another part of the program could accidentally change it.
+
+Immutability prevents accidental modifications.
+
+C. Hashing
+
+Dictionary keys must never change.
+
+Example:
+
+student = {
+    "Vivek": 90
+}
+
+If "Vivek" could suddenly become "Rahul", the dictionary would break.
+
+That is why strings are immutable and can safely be used as dictionary keys.
+
+D. Thread Safety
+
+When multiple parts of a program use the same string, 
+immutability ensures that one part cannot unexpectedly change it for everyone else.
+"""
+a = "Python"
+b = "Python"
+c = "Python"
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"Q.1 Replace Every Vowel With * "
+
+text = "Programming"
+
+vowels = "aeiouAEIOU"
+result = ""
+
+for ch in text:
+    if ch in vowels:
+        result += "*"
+    else:
+        result += ch
+
+print(result)
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+" Q.2 Remove consecutive duplicate character"
+
+text = "aaabbbbccdaa"
+
+result = text[0]
+
+for i in range(1, len(text)):
+    if text[i] != text[i - 1]:
+        result += text[i]
+
+print(result)
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+""" Q.3 Check if Two Strings are One Edit Away
+
+Two strings are one edit away if they differ by only one insertion, deletion, or replacement."""
+def one_edit_away(s1, s2):
+    if abs(len(s1) - len(s2)) > 1:
+        return False
+
+    if len(s1) > len(s2):
+        s1, s2 = s2, s1
+
+    i = j = 0
+    found = False
+
+    while i < len(s1) and j < len(s2):
+        if s1[i] != s2[j]:
+            if found:
+                return False
+            found = True
+
+            if len(s1) == len(s2):
+                i += 1
+        else:
+            i += 1
+
+        j += 1
+
+    return True
+
+print(one_edit_away("pale", "ple"))
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+"q.4 Compress a String (Run-Length Encoding) "
+text = "aaabbccccdd"
+
+result = ""
+count = 1
+
+for i in range(1, len(text)):
+    if text[i] == text[i - 1]:
+        count += 1
+    else:
+        result += text[i - 1] + str(count)
+        count = 1
+
+result += text[-1] + str(count)
+
+print(result)
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

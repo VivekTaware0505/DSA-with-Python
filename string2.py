@@ -251,6 +251,57 @@ for i in range(k, len(text)):
 print(result)
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Topic 8: Reverse words in a string
+
+1. What is Reverse Words in a String?
+In this problem, you do not reverse the characters inside each word. 
+Instead, you reverse the order of the words.
+
+Q.1 Reverse Words Without Using split()
+
+"""
+text = "Data Structures And Algorithms"
+
+word = ""
+words = []
+
+for ch in text:
+    if ch != " ":
+        word += ch
+    else:
+        if word:
+            words.append(word)
+            word = ""
+
+if word:
+    words.append(word)
+
+result = ""
+
+for i in range(len(words) - 1, -1, -1):
+    result += words[i]
+
+    if i != 0:
+        result += " "
+
+print(result)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Q.2 Reverse Each Word While Keeping Word Order
+"""
+
+text = "I Love Python"
+
+words = text.split()
+
+result = []
+
+for word in words:
+    result.append(word[::-1])
+
+print(" ".join(result))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 

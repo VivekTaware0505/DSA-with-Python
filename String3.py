@@ -208,5 +208,74 @@ def min_add(s):
 print(min_add("()))"))
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Topic 12 ; Roman to Integer
+
+1. What are Roman Numerals?
+
+Roman numerals are represented using 7 symbols.
+| Symbol | Value |
+| ------ | ----: |
+| I      |     1 |
+| V      |     5 |
+| X      |    10 |
+| L      |    50 |
+| C      |   100 |
+| D      |   500 |
+| M      |  1000 |
+
+
+
+"""
+def roman_to_int(s):
+
+    values = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+
+    total = 0
+
+    for i in range(len(s)):
+
+        if i < len(s) - 1 and values[s[i]] < values[s[i + 1]]:
+            total -= values[s[i]]
+        else:
+            total += values[s[i]]
+
+    return total
+
+
+print(roman_to_int("MCMXCIV"))
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+roman = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
+}
+
+s = "IV"
+
+total = 0
+
+for i in range(len(s)):
+
+    if i < len(s) - 1 and roman[s[i]] < roman[s[i + 1]]:
+        total -= roman[s[i]]
+    else:
+        total += roman[s[i]]
+
+print(total)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

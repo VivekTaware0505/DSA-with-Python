@@ -172,3 +172,85 @@ print(length)
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
+"""
+Topic 7 : Valid Anagram 
+
+
+1. What is an Anagram?
+
+Two strings are called Anagrams if they contain exactly the same characters with the same frequency, 
+but the characters can be in a different order.
+
+Anagrams are used in:
+
+Spell checking
+Dictionary applications
+Word puzzle games
+Search engines
+NLP (Natural Language Processing)
+Data comparison
+
+Q.1 Check an anagram without using counter
+
+"""
+s1 = "earth"
+s2 = "heart"
+
+if len(s1) != len(s2):
+    print("Not Anagram")
+else:
+    freq = {}
+
+    for ch in s1:
+        freq[ch] = freq.get(ch, 0) + 1
+
+    for ch in s2:
+        if ch not in freq:
+            print("Not Anagram")
+            break
+
+        freq[ch] -= 1
+
+        if freq[ch] < 0:
+            print("Not Anagram")
+            break
+    else:
+        print("Anagram")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Q.2 find all starting indices where "abc" appears as an anagram
+"""
+from collections import Counter
+
+text = "cbaebabacd"
+pattern = "abc"
+
+result = []
+
+k = len(pattern)
+
+p_count = Counter(pattern)
+window = Counter(text[:k])
+
+if window == p_count:
+    result.append(0)
+
+for i in range(k, len(text)):
+    window[text[i]] += 1
+
+    left_char = text[i - k]
+    window[left_char] -= 1
+
+    if window[left_char] == 0:
+        del window[left_char]
+
+    if window == p_count:
+        result.append(i - k + 1)
+
+print(result)
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+

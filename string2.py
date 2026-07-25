@@ -305,3 +305,73 @@ for word in words:
 print(" ".join(result))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
+
+"""
+Topic : 9 Longest comman Prefix
+
+1. What is Longest Common Prefix?
+
+The Longest Common Prefix (LCP) is the longest starting substring that is common to all strings in an array.
+
+
+Q.1 First string
+   Last string
+
+will have the maximum difference.
+
+Only compare these two.
+"""
+
+strs = ["flower", "flow", "flight"]
+
+strs.sort()
+
+first = strs[0]
+last = strs[-1]
+
+i = 0
+
+while i < len(first) and i < len(last):
+
+    if first[i] != last[i]:
+        break
+
+    i += 1
+
+print(first[:i])
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Q.2 A Trie (Prefix Tree) stores strings character by character.
+
+
+
+flower
+flow
+flight
+
+Trie:
+
+        (root)
+          |
+          f
+          |
+          l
+       /     \
+      o       i
+     /         \
+    w           g
+
+The common path is:
+
+f → l
+
+Answer:
+
+fl
+"""
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+

@@ -279,3 +279,144 @@ for i in range(len(s)):
 
 print(total)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Topic 13: Integer to Roman
+
+1. What is Integer to Roman?
+
+This problem is the reverse of the previous topic.
+
+You are given an integer, and you need to convert it into its Roman numeral representation.
+
+
+
+
+
+3. Why Greedy Algorithm?
+
+At every step:
+
+👉 Choose the largest Roman value that is less than or equal to the current number.
+
+Example:
+
+1994
+
+↓
+
+1000 → M
+
+Remaining = 994
+
+↓
+
+900 → CM
+
+Remaining = 94
+
+↓
+
+90 → XC
+
+Remaining = 4
+
+↓
+
+4 → IV
+
+Answer = MCMXCIV
+
+This is exactly how the Greedy Algorithm works.
+
+4. Algorithm
+Store Roman values in descending order.
+Start with the largest value.
+If the number is greater than or equal to that value:
+Add the Roman symbol.
+Subtract the value.
+Continue until the number becomes 0.
+
+
+
+
+Q.1Input
+58
+
+"""
+def int_to_roman(num):
+
+    values = [
+        1000,900,500,400,
+        100,90,50,40,
+        10,9,5,4,1
+    ]
+
+    romans = [
+        "M","CM","D","CD",
+        "C","XC","L","XL",
+        "X","IX","V","IV","I"
+    ]
+
+    result = ""
+
+    for i in range(len(values)):
+
+        while num >= values[i]:
+
+            result += romans[i]
+            num -= values[i]
+
+    return result
+
+
+print(int_to_roman(58))
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Q.2 Input
+1994
+Dry Run
+Number	Roman	Remaining
+1994	M	994
+994	CM	94
+94	XC	4
+4	IV	0
+
+Answer
+
+MCMXCIV
+"""
+
+def int_to_roman(num):
+
+    values = [
+        1000,900,500,400,
+        100,90,50,40,
+        10,9,5,4,1
+    ]
+
+    romans = [
+        "M","CM","D","CD",
+        "C","XC","L","XL",
+        "X","IX","V","IV","I"
+    ]
+
+    answer = ""
+
+    for value, symbol in zip(values, romans):
+
+        while num >= value:
+            answer += symbol
+            num -= value
+
+    return answer
+
+
+print(int_to_roman(1994))
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+

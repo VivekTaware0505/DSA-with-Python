@@ -268,6 +268,113 @@ print(count_palindromes("aaa"))
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Topic 16 : Group Anagrams and Advanced String Interview Problems 
+
+
+
+What is an Anagram?
+
+Two words are Anagrams if they contain the same characters with the same frequency, but possibly in a different order.
+
+
+What is Group Anagrams?
+
+Given a list of strings, group together all strings that are anagrams.
+
+Example
+
+Input
+
+["eat","tea","tan","ate","nat","bat"]
+
+Output
+
+[
+["eat","tea","ate"],
+["tan","nat"],
+[
+
+
+Q.1 if two srings are anagrams their sorted forms are identical 
+
+"""
+from collections import defaultdict
+
+def group_anagrams(words):
+
+    groups = defaultdict(list)
+
+    for word in words:
+
+        key = ''.join(sorted(word))
+
+        groups[key].append(word)
+
+    return list(groups.values())
+
+
+words = ["eat","tea","tan","ate","nat","bat"]
+
+print(group_anagrams(words))
+
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Q.2 instead of sorting count the frequency of each character
+
+Example
+
+eat
+
+↓
+
+a =1
+
+e =1
+
+t =1
+
+
+
+"""
+
+
+from collections import defaultdict
+
+def group_anagrams(words):
+
+    groups = defaultdict(list)
+
+    for word in words:
+
+        count = [0] * 26
+
+        for ch in word:
+            count[ord(ch) - ord('a')] += 1
+
+        groups[tuple(count)].append(word)
+
+    return list(groups.values())
+
+
+words = ["eat","tea","tan","ate","nat","bat"]
+
+print(group_anagrams(words))
+
+
+
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 

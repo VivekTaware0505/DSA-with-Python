@@ -1,0 +1,167 @@
+Module 3: Binary Search – Complete Notes
+1. Introduction to Binary Search 
+What is Searching?
+Linear Search vs Binary Search
+Requirements for Binary Search
+Advantages & Disadvantages
+Time Complexity
+Space Complexity
+Real-life Applications
+
+
+
+
+2. Binary Search Algorithm 
+Step-by-step Algorithm
+Flowchart
+Dry Run
+Binary Search Logic
+Mid Calculation
+Common Mistakes
+
+
+
+
+3. Iterative Binary Search 
+Using while loop
+Dry Run
+Advantages
+Time Complexity
+Space Complexity
+4. Recursive Binary Search 
+Recursion Basics
+Recursive Algorithm
+Base Case
+Recursive Calls
+Recursion Tree
+Comparison with Iterative Approach
+
+
+
+
+5. Binary Search Template 
+
+A reusable template that can solve most interview questions.
+
+Standard Template
+Left Pointer
+Right Pointer
+Mid Calculation
+Search Space Reduction
+
+
+
+6. Lower Bound 
+Definition
+Algorithm
+Examples
+Interview Questions
+Python implementation
+
+
+
+
+7. Upper Bound 
+Definition
+Difference from Lower Bound
+Examples
+Python implementation
+
+
+
+8. Floor and Ceil 
+Floor
+Ceil
+Difference
+Binary Search Approach
+Interview Questions
+
+
+
+9. First Occurrence 
+Duplicate Elements
+Binary Search Modification
+Applications
+
+
+
+10. Last Occurrence 
+Duplicate Elements
+Binary Search Modification
+Applications
+
+
+
+11. Count Occurrences 
+Formula:
+Count = Last Occurrence − First Occurrence + 1
+Efficient Implementation
+
+
+
+12. Search Insert Position 
+LeetCode 35
+Binary Search Solution
+Interview Discussion
+
+
+
+13. Search in Rotated Sorted Array 
+What is a Rotated Array?
+Finding the Sorted Half
+Binary Search Logic
+LeetCode 33
+
+
+
+14. Find Minimum in Rotated Sorted Array 
+Binary Search Approach
+Edge Cases
+Interview Questions
+
+
+
+15. Find Peak Element 
+Peak Definition
+Binary Search Logic
+LeetCode 162
+
+
+16. Square Root Using Binary Search 
+Integer Square Root
+Binary Search Solution
+Overflow Considerations
+
+
+
+17. Binary Search on Answer
+Common problems:
+
+Koko Eating Bananas
+Capacity to Ship Packages
+Minimum Days to Make Bouquets
+Aggressive Cows
+Allocate Minimum Pages
+Painter's Partition
+
+18. Binary Search in 2D Matrix 
+Search a Matrix
+Row-wise Binary Search
+Flattened Matrix Technique
+LeetCode 74
+
+19. Median of Two Sorted Arrays 
+Partition Method
+Binary Search
+One of the toughest interview problems
+
+
+20. Advanced Binary Search Problems 
+
+K-th Missing Positive Number
+Split Array Largest Sum
+Search in Infinite Sorted Array
+Peak in Mountain Array
+Find Single Element in Sorted Array
+Magnetic Force Between Balls
+Minimize Maximum Distance

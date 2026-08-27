@@ -673,9 +673,52 @@ print("------------------------------Vivek Learning DSA Python------------------
 
 
 """
+Topic Binary Search Templates
 
+
+1. What is a Binary Search Template?
+
+A template is a standard structure that you can reuse.
+
+Instead of writing Binary Search from zero every time, you remember the basic structure:
+
+low
+high
+mid
+   ↓
+compare
+   ↓
+eliminate half
+   ↓
+repeat
+
+Most Binary Search interview problems are variations of this idea.
+
+
+2. The Basic Template
+
+For finding an exact element:
 
 """
+def binary_search(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] == target:
+            return mid
+
+        elif arr[mid] < target:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return -1
 
 
 

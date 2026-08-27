@@ -340,3 +340,318 @@ arr = [10, 20, 30, 40, 50]
 print(contains(arr, 40))
 print(contains(arr, 45))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+
+
+
+"""
+
+
+Topic 3 : Recursive Binary Search 
+
+1. What is Recursive Binary Search?
+
+In recursive Binary Search, the function calls itself with a smaller search range.
+
+instead of:
+
+while low <= high:
+
+we repeatedly call:
+
+binary_search(arr, target, low, high)
+
+until:
+
+
+Basic Idea
+
+Suppose:
+
+[10, 20, 30, 40, 50, 60, 70]
+
+Target:
+
+50
+
+Initially:
+
+low = 0
+high = 6
+
+Middle:
+
+mid = 3
+
+arr[3] = 40
+
+Because:
+
+50 > 40
+
+we search the right half:
+
+low = 4
+high = 6
+
+The function calls itself again.
+
+
+
+The Three Cases
+Case 1: Target Found
+if arr[mid] == target:
+    return mid
+Case 2: Target is Smaller
+if target < arr[mid]:
+    return binary_search(arr, target, low, mid - 1)
+
+Search the left half.
+
+Case 3: Target is Larger
+else:
+    return binary_search(arr, target, mid + 1, high)
+
+Search the right half.
+
+4. The Most Important Part — Base Case
+
+Every recursive function needs a base case.
+
+Here:
+
+if low > high:
+    return -1
+
+This means:
+
+There is no search space left, so the target doesn't exist.
+
+Without a proper base case, recursion could continue indefinitely.
+
+"""
+
+def binary_search(arr, target, low, high):
+
+    if low > high:
+        return -1
+
+    mid = low + (high - low) // 2
+
+    if arr[mid] == target:
+        return mid
+
+    elif target < arr[mid]:
+        return binary_search(arr, target, low, mid - 1)
+
+    else:
+        return binary_search(arr, target, mid + 1, high)
+
+
+arr = [10, 20, 30, 40, 50, 60, 70]
+target = 50
+
+result = binary_search(arr, target, 0, len(arr) - 1)
+
+print(result)
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+
+Let's Understand Every Line
+Function
+def binary_search(arr, target, low, high):
+
+We pass four things:
+
+arr → sorted array
+target → value we're searching for
+low → beginning of search range
+high → end of search range
+Base Case
+if low > high:
+    return -1
+
+If:
+
+low > high
+
+there are no elements remaining.
+
+Find Middle
+mid = low + (high - low) // 2
+Check Target
+if arr[mid] == target:
+    return mid
+
+If found, return the index.
+
+Search Left
+elif target < arr[mid]:
+    return binary_search(arr, target, low, mid - 1)
+
+We don't need the right half.
+
+Search Right
+else:
+    return binary_search(arr, target, mid + 1, high)
+
+We don't need the left half.
+
+"""
+
+
+
+"""
+
+
+
+Detailed Dry Run
+
+Array:
+
+[5, 10, 15, 20, 25, 30, 35, 40, 45]
+
+Target:
+
+35
+Call 1
+low = 0
+high = 8
+
+mid = 4
+
+arr[4] = 25
+
+Since:
+
+35 > 25
+
+call:
+
+binary_search(arr, 35, 5, 8)
+Call 2
+low = 5
+high = 8
+
+mid = 6
+
+arr[6] = 35
+
+Found!
+
+return 6
+
+So the answer is:
+
+6
+8. Recursion Visualization
+
+The calls look like this:
+
+binary_search(0, 8)
+        |
+        ↓
+binary_search(5, 8)
+        |
+        ↓
+binary_search(5, 5)
+        |
+        ↓
+      Found
+
+Each call reduces the search space.
+
+9. Example Where Target Doesn't Exist
+
+Array:
+
+[10, 20, 30, 40, 50]
+
+Target:
+
+35
+Call 1
+low = 0
+high = 4
+mid = 2
+arr[2] = 30
+
+35 > 30
+
+low = 3
+Call 2
+low = 3
+high = 4
+mid = 3
+arr[3] = 40
+
+35 < 40
+
+high = 2
+
+Now:
+
+low = 3
+high = 2
+
+Therefore:
+
+low > high
+
+Return:
+
+-1
+10. 🟢 Easy Example
+arr = [2, 4, 6, 8, 10]
+target = 8
+result = binary_search(arr, target, 0, len(arr) - 1)
+
+print(result)
+
+Output:
+
+3
+11. 🔥 Advanced Example — First Understand the Pattern
+
+Suppose:
+
+arr = [1, 3, 5, 7, 9, 11, 13, 15, 17]
+target = 13
+
+The recursive search:
+
+0 → 8
+
+Middle:
+
+4 → 9
+
+13 > 9:
+
+5 → 8
+
+Middle:
+
+6 → 13
+
+🎯 Found at index 6.
+
+
+12. Iterative vs Recursive Binary Search
+
+This is an important interview question.
+
+
+"""
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

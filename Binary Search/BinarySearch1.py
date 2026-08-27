@@ -980,5 +980,91 @@ print(search_insert(arr, 4))
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+14. Binary Search Decision Tree
+
+A useful way to think:
+
+                 Binary Search
+                      |
+             ┌────────┴────────┐
+             |                 |
+        Exact Search      Boundary Search
+             |                 |
+       Find target       First valid position
+                               |
+                    ┌──────────┴──────────┐
+                    |                     |
+              Lower Bound            Upper Bound
+
+Later:
+
+Boundary Search
+       ↓
+Binary Search on Answer
+       ↓
+Advanced Problems
+15. How to Recognize Binary Search in Interviews
+
+Look for these clues:
+
+Clue 1
+
+The array is sorted.
+
+Example:
+
+[2, 5, 8, 12, 15, 20]
+
+Think:
+
+Binary Search?
+
+Clue 2
+
+The question asks for:
+
+First occurrence
+Last occurrence
+Minimum
+Maximum
+Position
+Closest value
+
+Think:
+
+Can I use a Binary Search boundary?
+
+Clue 3
+
+The problem asks:
+
+Find the minimum possible value satisfying a condition.
+
+Think:
+
+Binary Search on Answer
+
+Clue 4
+
+The problem has:
+
+False False False True True True
+
+or:
+
+True True True False False False
+
+Think:
+
+Monotonic property → Binary Search
+
+"""
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

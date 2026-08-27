@@ -648,10 +648,35 @@ Middle:
 12. Iterative vs Recursive Binary Search
 
 This is an important interview question.
+Feature	Iterative	Recursive
+Uses	Loop	Function calls
+Time	O(log n)	O(log n)
+Extra Space	O(1)	O(log n)
+Stack usage	No	Yes
+Performance	Slightly better	Slightly more overhead
+Simplicity	Usually simpler	Elegant for recursion practice
+
+
+
+
+Which one should you use?
+
+For practical Python programs:
+
+Iterative Binary Search is generally preferred because it uses O(1) extra space.
+
+Recursive Binary Search is valuable for understanding recursion and for interview questions that specifically ask for a recursive solution.
+"""
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 
 """
 
 
-print("------------------------------Vivek Learning DSA Python----------------------------------------")
+"""
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

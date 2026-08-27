@@ -930,3 +930,55 @@ arr = [1, 2, 2, 2, 4, 5]
 
 print(first_occurrence(arr, 2))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+— Search Insert Position
+
+Problem:
+
+arr = [1, 3, 5, 6]
+target = 4
+
+Where should 4 be inserted to maintain sorted order?
+
+Answer:
+
+2
+
+Because:
+
+[1, 3, 4, 5, 6]
+
+
+"""
+def search_insert(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = len(arr)
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    return answer
+
+
+arr = [1, 3, 5, 6]
+
+print(search_insert(arr, 4))
+
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

@@ -723,3 +723,122 @@ def binary_search(arr, target):
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+3. Understand the Four Important Parts
+
+Every standard Binary Search has four major components.
+
+Part 1 — Search Space
+low = 0
+high = len(arr) - 1
+
+This defines where we're searching.
+
+Part 2 — Middle
+mid = low + (high - low) // 2
+
+We select the middle element.
+
+Part 3 — Decision
+if arr[mid] == target:
+
+We determine what to do based on the comparison.
+
+Part 4 — Reduce Search Space
+
+If target is greater:
+
+low = mid + 1
+
+If target is smaller:
+
+high = mid - 1
+
+This is the heart of Binary Search.
+
+4. The Most Important Question
+
+When solving a Binary Search problem, ask:
+
+"Can I eliminate half of the search space?"
+
+If yes, Binary Search may be applicable.
+
+For example:
+
+[10, 20, 30, 40, 50, 60, 70]
+
+Target = 60
+
+Middle = 40
+
+Since:
+
+60 > 40
+
+everything before 40 can be eliminated.
+
+That's the Binary Search property.
+
+5. 🔥 General Binary Search Thinking
+
+Don't immediately think:
+
+"I need a sorted array."
+
+Instead think:
+
+"I have a search space, and I can decide which half cannot contain the answer."
+
+This becomes extremely important later when we study:
+
+Binary Search on Answer
+
+For example:
+
+Find the minimum capacity required to ship packages within D days.
+
+There might not be an obvious sorted array of answers, but the possible answers form a monotonic search space.
+
+
+"""
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+
+Three Main Templates 
+
+There are three patterns you should know.
+
+Template 1 — Exact Search
+
+Used when you want to find a specific element.
+
+"""
+
+
+def binary_search(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] == target:
+            return mid
+
+        elif arr[mid] < target:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return -1
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

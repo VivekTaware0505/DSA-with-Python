@@ -842,3 +842,49 @@ def binary_search(arr, target):
 
     return -1
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+7. Template 2 — Find the First Valid Position
+
+This pattern is extremely important for:
+
+Lower Bound
+First occurrence
+Search Insert Position
+Minimum valid answer
+
+The basic idea is:
+
+If current position is valid:
+    store answer
+    search left
+
+Otherwise:
+    search right
+
+
+"""
+
+def first_valid(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    return answer
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

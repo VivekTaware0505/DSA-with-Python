@@ -887,4 +887,46 @@ def first_valid(arr, target):
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+First position : example 
+
+Problem
+
+Given:
+
+arr = [1, 2, 2, 2, 4, 5]
+
+Find the first occurrence of:
+
+2
+
+"""
+
+def first_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] == target:
+            answer = mid
+            high = mid - 1
+
+        elif arr[mid] < target:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return answer
+
+
+arr = [1, 2, 2, 2, 4, 5]
+
+print(first_occurrence(arr, 2))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

@@ -634,6 +634,100 @@ arr = [1, 2, 2, 2, 2, 5, 7]
 
 print(count_occurrences(arr, 2))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Topic ; Count Occurrence 
+
+
+In a sorted array, count how many times a target appears using Binary Search instead of scanning the whole array.
+
+1. Example
+arr = [1, 2, 2, 2, 2, 5, 7]
+target = 2
+We know:
+First occurrence = 1
+Last occurrence  = 4
+So the number of occurrences is:
+= 4 - 1 + 1
+= 4
+Answer: 4
+2. Best Binary Search Formula 
+There is an even cleaner method using Lower Bound and Upper Bound:
+For:
+[1, 2, 2, 2, 2, 5, 7]
+Target = 2
+Lower Bound = 1
+Upper Bound = 5
+Therefore:
+Count = 5 - 1
+      = 4
+3. Why Does This Work?
+Look at the array:
+Index:   0  1  2  3  4  5  6
+Array:   1  2  2  2  2  5  7
+            ↑           ↑
+           LB          UB
+            1           5
+The target occupies indices:
+1, 2, 3, 4
+Number of positions:
+5 - 1 = 4
+That's the beauty of Lower/Upper Bound.
+
+
+
+"""
+
+
+def lower_bound(arr, target):
+
+    low = 0
+    high = len(arr)
+
+    while low < high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            high = mid
+        else:
+            low = mid + 1
+
+    return low
+
+
+def upper_bound(arr, target):
+
+    low = 0
+    high = len(arr)
+
+    while low < high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] > target:
+            high = mid
+        else:
+            low = mid + 1
+
+    return low
+
+
+def count_occurrences(arr, target):
+
+    first = lower_bound(arr, target)
+    last = upper_bound(arr, target)
+
+    return last - first
+
+
+arr = [1, 2, 2, 2, 2, 5, 7]
+
+print(count_occurrences(arr, 2))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 

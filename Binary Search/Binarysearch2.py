@@ -728,6 +728,16 @@ arr = [1, 2, 2, 2, 2, 5, 7]
 print(count_occurrences(arr, 2))
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+def count_occurrences(arr, target):
+
+    first = first_occurrence(arr, target)
+
+    if first == -1:
+        return 0
+
+    last = last_occurrence(arr, target)
+
+    return last - first + 1
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 

@@ -1226,4 +1226,29 @@ result = lower_bound(arr, 5)
 print(result)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
+"""
+
+LOWER BOUND
+
+Definition:
+First index where arr[i] >= target.
+
+If arr[mid] >= target:
+    answer = mid
+    high = mid - 1
+
+If arr[mid] < target:
+    low = mid + 1
+
+Initial answer:
+    len(arr)
+
+Time:
+    O(log n)
+
+Space:
+    O(1)
+
+"""
+
   

@@ -739,5 +739,99 @@ def count_occurrences(arr, target):
 
     return last - first + 1
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Topic : Search Insert Position 
+
+
+1. What is Search Insert Position?
+Given a sorted array and a target, find the index where the target exists.
+If the target doesn't exist, find the index where it should be inserted to keep the array sorted.
+Example
+arr = [1, 3, 5, 6]
+target = 5
+5 already exists:
+Index = 2
+Answer:
+2
+2. Target Doesn't Exist
+arr = [1, 3, 5, 6]
+target = 2
+Where should 2 be inserted?
+[1, 2, 3, 5, 6]
+    ↑
+  index 1
+Answer:
+1
+
+3. The Important Connection
+Search Insert Position is exactly:
+Lower Bound
+
+Because we want the first index where arr[i] >= target.
+So:
+Search Insert Position
+        ↓
+    Lower Bound
+        ↓
+first index >= target
+
+"""
+
+
+def search_insert(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return low
+
+
+arr = [1, 3, 5, 6]
+
+print(search_insert(arr, 5))
+print(search_insert(arr, 2))
+print(search_insert(arr, 7))
+print(search_insert(arr, 0))
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Example 
+
+"""
+
+def search_insert(arr, target):
+
+    low = 0
+    high = len(arr)
+
+    while low < high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            high = mid
+        else:
+            low = mid + 1
+
+    return low
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 

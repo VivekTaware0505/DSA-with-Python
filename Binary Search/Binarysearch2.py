@@ -450,5 +450,60 @@ print(first_occurrence(arr, 2))
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Finding Last Occurrence 
+
+
+
+Now we use the Upper Bound idea.
+Upper Bound gives:
+First index where arr[i] > target.
+
+For:
+[1, 2, 2, 2, 2, 5, 7]
+target = 2
+Upper Bound:
+5
+Index 5 contains 5.
+Therefore:
+Last occurrence = Upper Bound - 1
+So:
+5 - 1 = 4
+Answer:
+4
+"""
+
+
+
+
+def last_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] > target:
+            high = mid - 1
+
+        else:
+            answer = mid
+            low = mid + 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+arr = [1, 2, 2, 2, 2, 5, 7]
+
+print(last_occurrence(arr, 2))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

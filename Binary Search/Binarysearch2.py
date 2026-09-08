@@ -175,6 +175,100 @@ Space:
 
 """
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Topic : Floor and Celi
+
+
+
+
+1. What is Floor?
+The Floor of a target is:
+The largest element that is less than or equal to the target.
+
+Mathematically:
+Example
+arr = [1, 3, 5, 7, 9]
+target = 6
+Values ≤ 6:
+1, 3, 5
+Largest = 5
+Therefore:
+Floor = 5
+2. What is Ceil?
+The Ceil of a target is:
+The smallest element that is greater than or equal to the target.
+
+Example:
+arr = [1, 3, 5, 7, 9]
+target = 6
+Values ≥ 6:
+7, 9
+Smallest = 7
+Therefore:
+Ceil = 7
+3. Easy Way to Remember
+For:
+arr = [1, 3, 5, 7, 9]
+target = 6
+       Floor   Target   Ceil
+          ↓       ↓       ↓
+[1, 3, 5, 7, 9]
+       5       6       7
+Remember:
+Floor → goes DOWN
+Ceil → goes UP
+4. Floor Using Binary Search
+We need:
+largest element <= target
+Logic
+If:
+arr[mid] <= target
+then arr[mid] is a possible Floor.
+Save it:
+answer = arr[mid]
+But maybe there is a larger valid value.
+So go right:
+low = mid + 1
+If:
+arr[mid] > target
+the value is too large.
+Go left:
+high = mid - 1
+
+
+
+
+
+"""
+def find_floor(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = None
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] <= target:
+            answer = arr[mid]
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return answer
+
+
+arr = [1, 3, 5, 7, 9]
+
+print(find_floor(arr, 6))
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

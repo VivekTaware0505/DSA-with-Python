@@ -368,4 +368,87 @@ print("Ceil:", ceil)
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+
+Topic : First and Last Occurrence
+
+
+
+The Problem
+Suppose we have:
+arr = [1, 2, 2, 2, 2, 5, 7]
+Target:
+2
+We want:
+First occurrence → 1
+Last occurrence  → 4
+Visual:
+Index:   0  1  2  3  4  5  6
+Array:   1  2  2  2  2  5  7
+            ↑           ↑
+          First        Last
+2. Why Normal Binary Search Isn't Enough
+Normal Binary Search might find:
+index = 3
+That's a valid occurrence.
+But the question asks specifically for:
+First → index 1
+Last  → index 4
+So we need to modify Binary Search.
+3. Finding First Occurrence
+The easiest way is to use the Lower Bound idea.
+We want:
+first arr[i] >= target
+For:
+[1, 2, 2, 2, 2, 5, 7]
+target = 2
+Lower Bound gives:
+1
+Since:
+arr[1] == target
+the first occurrence is:
+1
+Important:
+Lower Bound can return the insertion position even if the target doesn't exist.
+So we must verify:
+if index < len(arr) and arr[index] == target:
+
+"""
+
+def first_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+arr = [1, 2, 2, 2, 2, 5, 7]
+
+print(first_occurrence(arr, 2))
+
+
+
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

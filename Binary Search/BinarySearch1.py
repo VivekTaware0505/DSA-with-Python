@@ -1067,4 +1067,163 @@ Monotonic property → Binary Search
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+1. What is Lower Bound?
+In simple language:
+Lower Bound finds the first index where arr[index] >= target.
+
+That means we are looking for the first element that is greater than or equal to the target.
+Example
+Array  = [1, 3, 3, 5, 7, 9]
+Target = 3
+The elements satisfying arr[i] >= 3 are:
+index:   1   2   3   4   5
+value:   3   3   5   7   9
+The first one is index 1.
+So:
+Lower Bound = 1
+
+
+
+
+
+2. Why Do We Need Lower Bound?
+Normal Binary Search asks:
+"Where is my target?"
+
+Lower Bound asks:
+"Where does my target or a larger value start?"
+
+This difference is very important.
+For:
+[1, 3, 3, 3, 5, 7]
+Target = 3
+Normal Binary Search might return:
+1, 2, or 3
+depending on the implementation.
+But Lower Bound must return 1.
+3. Easy Example
+Array = [2, 4, 6, 8, 10]
+Target = 5
+We need the first element:
+>= 5
+That is:
+6
+at index:
+2
+Therefore:
+Lower Bound = 2
+Notice that 5 doesn't even exist in the array.
+Lower Bound does not require the target to exist.
+4. Core Logic
+We maintain:
+low = 0
+high = len(arr) - 1
+answer = len(arr)
+Why:
+answer = len(arr)
+?
+Because if every element is smaller than the target, the insertion position is after the last element.
+Example:
+[2, 4, 6]
+target = 10
+Lower Bound is:
+3
+because index 3 is where 10 could be inserted.
+5. Lower Bound Algorithm
+At every mid:
+If:
+arr[mid] >= target
+We found a possible answer.
+Store it:
+answer = mid
+But don't stop!
+There might be another valid answer further left.
+Therefore:
+high = mid - 1
+Otherwise:
+arr[mid] < target
+The current element is too small.
+We need to go right:
+low = mid + 1
+
+
+"""
+def lower_bound(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = len(arr)
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    return answer
+
+
+arr = [1, 3, 3, 5, 7, 9]
+
+print(lower_bound(arr, 3))
+
+
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+
+Problem
+Given:
+arr = [2, 4, 4, 4, 6, 8, 10]
+Find the Lower Bound of:
+5
+We need:
+first element >= 5
+The first such element is:
+6
+Index:
+4
+
+
+
+"""
+
+def lower_bound(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = len(arr)
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return answer
+
+
+arr = [2, 4, 4, 4, 6, 8, 10]
+
+result = lower_bound(arr, 5)
+
+print(result)
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+  

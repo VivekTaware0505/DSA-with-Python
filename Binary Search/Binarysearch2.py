@@ -506,4 +506,134 @@ arr = [1, 2, 2, 2, 2, 5, 7]
 
 print(last_occurrence(arr, 2))
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+First Occurrence and last Occurrence example 
+
+"""
+
+
+def first_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+def last_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] > target:
+            high = mid - 1
+        else:
+            answer = mid
+            low = mid + 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+arr = [1, 2, 2, 2, 2, 5, 7]
+target = 2
+
+first = first_occurrence(arr, target)
+last = last_occurrence(arr, target)
+
+print("First occurrence:", first)
+print("Last occurrence:", last)
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+Complete Frequency Program
+
+"""
+
+def first_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] >= target:
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+def last_occurrence(arr, target):
+
+    low = 0
+    high = len(arr) - 1
+    answer = -1
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+
+        if arr[mid] <= target:
+            answer = mid
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    if answer != -1 and arr[answer] == target:
+        return answer
+
+    return -1
+
+
+def count_occurrences(arr, target):
+
+    first = first_occurrence(arr, target)
+
+    if first == -1:
+        return 0
+
+    last = last_occurrence(arr, target)
+
+    return last - first + 1
+
+
+arr = [1, 2, 2, 2, 2, 5, 7]
+
+print(count_occurrences(arr, 2))
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+

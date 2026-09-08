@@ -1070,6 +1070,10 @@ print("------------------------------Vivek Learning DSA Python------------------
 
 
 """
+
+
+Topic : Lower Nound
+
 1. What is Lower Bound?
 In simple language:
 Lower Bound finds the first index where arr[index] >= target.

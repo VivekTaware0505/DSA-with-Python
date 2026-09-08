@@ -173,6 +173,113 @@ print("Index:", result)
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Find Minimum in Rotated Sorted Array
+
+
+
+
+
+1. Problem
+Given a sorted array that has been rotated, find the minimum element.
+Example:
+[3, 4, 5, 1, 2]
+The original sorted array was:
+[1, 2, 3, 4, 5]
+After rotation:
+[3, 4, 5, 1, 2]
+The minimum is:
+1
+We want to find it in O(log n).
+2. Key Observation ⭐⭐⭐⭐⭐
+Consider:
+[4, 5, 6, 7, 0, 1, 2]
+         ↑
+       minimum
+There are two portions:
+[4, 5, 6, 7] [0, 1, 2]
+     sorted      sorted
+The minimum is where the rotation happens.
+The important question is:
+Is mid in the left sorted portion or the right sorted portion?
+
+We compare:
+arr[mid]
+with:
+arr[high]
+
+3. The Main Rule 
+Case 1
+If:
+arr[mid] > arr[high]
+then the minimum must be to the right of mid.
+So:
+low = mid + 1
+Why?
+Example:
+[4, 5, 6, 7, 0, 1, 2]
+       ↑        ↑
+      mid      high
+
+7 > 2
+Therefore:
+minimum is RIGHT
+Case 2
+If:
+arr[mid] <= arr[high]
+then the minimum is at mid or to the left of mid.
+So:
+high = mid
+
+
+
+⚠️ Notice:
+high = mid
+NOT:
+high = mid - 1
+because mid itself could be the minimum.
+4. Algorithm
+low = 0
+high = n - 1
+
+while low < high:
+
+    mid = (low + high) // 2
+
+    if arr[mid] > arr[high]:
+        low = mid + 1
+    else:
+        high = mid
+
+return arr[low]
+
+"""
+
+
+def find_min(arr):
+    low = 0
+    high = len(arr) - 1
+
+    while low < high:
+
+        mid = (low + high) // 2
+
+        if arr[mid] > arr[high]:
+            low = mid + 1
+        else:
+            high = mid
+
+    return arr[low]
+
+
+arr = [4, 5, 6, 7, 0, 1, 2]
+
+print("Minimum:", find_min(arr))
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

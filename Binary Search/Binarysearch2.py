@@ -146,6 +146,34 @@ print(result)
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+
+UPPER BOUND
+
+Definition:
+First index where arr[i] > target.
+
+If arr[mid] > target:
+    answer = mid
+    high = mid - 1
+
+If arr[mid] <= target:
+    low = mid + 1
+
+Initial answer:
+    len(arr)
+
+Time:
+    O(log n)
+
+Space:
+    O(1)
+
+
+
+"""
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

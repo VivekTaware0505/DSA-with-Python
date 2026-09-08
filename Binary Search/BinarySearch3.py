@@ -177,7 +177,7 @@ print("------------------------------Vivek Learning DSA Python------------------
 
 """
 
-Find Minimum in Rotated Sorted Array
+Topic : Find Minimum in Rotated Sorted Array
 
 
 
@@ -281,6 +281,22 @@ print("Minimum:", find_min(arr))
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+The standard problem assumes distinct elements.
+If duplicates are allowed, consider:
+[2, 2, 2, 0, 1, 2]
+Sometimes:
+arr[mid] == arr[high]
+doesn't tell us which side contains the minimum.
+A common modification is:
+
+"""
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

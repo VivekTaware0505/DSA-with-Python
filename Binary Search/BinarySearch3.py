@@ -687,4 +687,149 @@ print("Minimum speed:", min_eating_speed(piles, h))
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""
+
+Topic :  Binary Search in 2D matrix 
+
+
+What is a 2D Matrix?
+A matrix is an array containing rows and columns.
+Example:
+[ 1   3   5   7 ]
+[10  11  16  20 ]
+[23  30  34  60 ]
+It has:
+3 rows
+4 columns
+We can access:
+matrix[row][column]
+For example:
+matrix[1][2]
+gives:
+16
+
+
+2. The Problem
+Given a matrix where:
+1. Every row is sorted.
+2. The first element of each row is greater than the last element of the previous row.
+Example:
+[ 1   3   5   7 ]
+[10  11  16  20 ]
+[23  30  34  60 ]
+Search for:
+16
+Answer:
+Row = 1
+Column = 2
+
+
+3. The Important Observation 
+Look at the matrix as if it were a single sorted array.
+Matrix:
+[ 1   3   5   7 ]
+[10  11  16  20 ]
+[23  30  34  60 ]
+Imagine flattening it:
+[1, 3, 5, 7, 10, 11, 16, 20, 23, 30, 34, 60]
+This is sorted.
+So instead of doing:
+row search
++
+column search
+we can perform one Binary Search.
+4. But We Don't Actually Flatten It
+We don't need to create another array.
+Suppose:
+rows = 3
+cols = 4
+If Binary Search gives us a virtual index:
+mid = 6
+we convert it to:
+row = mid // cols
+column = mid % cols
+Therefore:
+row = 6 // 4 = 1
+column = 6 % 4 = 2
+So:
+matrix[1][2] = 16
+
+5. The Key Formula 
+For a virtual 1D index mid:
+In Python:
+row = mid // cols
+col = mid % cols
+This formula is extremely important.
+
+
+low = 0
+high = rows × cols - 1
+
+while low <= high:
+
+    mid = (low + high) // 2
+
+    row = mid // cols
+    col = mid % cols
+
+    value = matrix[row][col]
+
+    if value == target:
+        return row, col
+
+    elif value < target:
+        low = mid + 1
+
+    else:
+        high = mid - 1
+
+return -1
+
+
+"""
+
+def search_matrix(matrix, target):
+
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    low = 0
+    high = rows * cols - 1
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        row = mid // cols
+        col = mid % cols
+
+        value = matrix[row][col]
+
+        if value == target:
+            return row, col
+
+        elif value < target:
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return -1
+
+
+matrix = [
+    [1, 3, 5, 7],
+    [10, 11, 16, 20],
+    [23, 30, 34, 60]
+]
+
+target = 16
+
+result = search_matrix(matrix, target)
+
+print("Position:", result)
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

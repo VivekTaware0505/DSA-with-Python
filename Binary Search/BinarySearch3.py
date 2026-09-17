@@ -298,8 +298,266 @@ A common modification is:
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Topic :-  find peak element 
+
+1. What is a Peak Element?
+A peak element is an element that is greater than its neighboring element(s).
+For example:
+[1, 3, 5, 4, 2]
+       ↑
+      5
+5 is a peak because:
+5 > 3
+5 > 4
+So the answer is index:
+2
+
+
+
+2. Important Problem Statement
+Given an array where adjacent elements are different, find any peak element and return its index.
+Example:
+arr = [1, 2, 3, 1]
+Peak:
+       3
+       ↑
+[1, 2, 3, 1]
+Answer:
+2
+
+
+There can be more than one peak, and returning any one is acceptable.
+3. The Important Observation 
+This is the trick.
+Take:
+[1, 2, 7, 4, 3]
+       ↑
+      mid
+At mid, compare:
+arr[mid]
+with:
+arr[mid + 1]
+There are two possibilities.
+Case 1 — arr[mid] < arr[mid + 1]
+Example:
+[1, 2, 7, 8, 9, 4]
+       ↑  ↑
+      mid mid+1
+We have:
+7 < 8
+So we are moving uphill.
+That means:
+There must be a peak somewhere on the right side.
+
+Therefore:
+low = mid + 1
+Case 2 — arr[mid] > arr[mid + 1]
+Example:
+[1, 2, 9, 7, 5, 3]
+       ↑  ↑
+      mid mid+1
+We have:
+9 > 7
+We are moving downhill.
+Therefore a peak exists at mid or somewhere on the left side.
+So:
+high = mid
+Notice again:
+high = mid
+not:
+high = mid - 1
+because mid itself might be the peak.
+
+4. The Main Logic 
+Memorize this:
+arr[mid] < arr[mid + 1]
+        ↓
+   Peak is RIGHT
+        ↓
+low = mid + 1
+Otherwise:
+arr[mid] > arr[mid + 1]
+        ↓
+Peak is LEFT or MID
+        ↓
+high = mid
+This is the entire core idea.
+
+
+
+"""
+
+def find_peak(arr):
+    low = 0
+    high = len(arr) - 1
+
+    while low < high:
+
+        mid = (low + high) // 2
+
+        if arr[mid] < arr[mid + 1]:
+            # We are going uphill
+            low = mid + 1
+
+        else:
+            # We are going downhill
+            high = mid
+
+    return low
+
+
+arr = [1, 2, 3, 1]
+
+index = find_peak(arr)
+
+print("Peak index:", index)
+print("Peak value:", arr[index])
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+topic sqaure root using binary search 
+
+
+
+
+1. Problem
+Given a number n, find its integer square root without using sqrt().
+For example:
+√25 = 5
+√16 = 4
+√10 ≈ 3.16
+For 10, the integer square root is:
+3
+because:
+3 × 3 = 9 ≤ 10
+4 × 4 = 16 > 10
+So we want:
+The largest integer x such that x² ≤ n.
+
+2. Why Binary Search?
+Suppose:
+n = 100
+Possible answers are:
+0 1 2 3 4 5 6 7 8 9 10
+We know:
+0² ≤ 100
+1² ≤ 100
+2² ≤ 100
+...
+10² ≤ 100
+We could check each number one by one:
+O(n)
+But the answer lies in a sorted numeric range.
+Therefore we can Binary Search.
+3. Search Space
+For:
+n = 36
+we know:
+0 ≤ answer ≤ 36
+But we can optimize this.
+For n > 1:
+answer ≤ n // 2
+However, the simplest implementation is:
+low = 0
+high = n
+4. Main Logic 
+Calculate:
+mid = (low + high) // 2
+Then:
+mid * mid
+Compare it with n.
+Case 1
+If:
+mid * mid == n
+
+
+
+
+Exact square root found.
+Return mid.
+Case 2
+If:
+mid * mid < n
+mid is too small.
+But it might be the answer.
+So save it:
+answer = mid
+and search right:
+low = mid + 1
+Case 3
+If:
+mid * mid > n
+mid is too large.
+Search left:
+high = mid - 1
+
+
+"""
+
+
+def integer_sqrt(n):
+    if n < 2:
+        return n
+
+    low = 0
+    high = n
+    answer = 0
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        square = mid * mid
+
+        if square == n:
+            return mid
+
+        elif square < n:
+            answer = mid
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return answer
+
+
+n = 10
+
+print("Integer square root:", integer_sqrt(n))
+
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+"""Optimized Python Version"""
+
+
+def integer_sqrt(n):
+    if n < 2:
+        return n
+
+    low = 1
+    high = n // 2
+    answer = 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if mid <= n // mid:
+            answer = mid
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return answer
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

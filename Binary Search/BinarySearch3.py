@@ -833,3 +833,222 @@ print("Position:", result)
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+Median of two sorted arrays 
+
+
+Problem Statement
+You are given two sorted arrays:
+A = [1, 3]
+B = [2]
+Combine them conceptually:
+[1, 2, 3]
+Median = 2
+But we do not actually merge the arrays, because we want an efficient solution.
+Goal
+Find the median in:
+O(log(min(m, n))) time and O(1) extra space.
+2. What is Median?
+For a sorted array:
+Odd number of elements
+[1, 2, 3, 4, 5]
+
+Median = 3
+The middle element is the median.
+Even number of elements
+[1, 2, 3, 4]
+
+Median = (2 + 3) / 2
+       = 2.5
+3. Why Not Simply Merge?
+We could do:
+merged = sorted(A + B)
+But this takes:
+O((m+n) log(m+n))
+Even a two-pointer merge takes:
+O(m+n)
+The interview expects us to do better:
+O(log(min(m,n)))
+So we use Binary Search.
+4. Main Idea — Partition
+Imagine putting a vertical cut inside each array.
+For example:
+A = [1, 3 | 7, 9]
+B = [2, 4, 6 | 8]
+We have:
+        LEFT        |       RIGHT
+A     [1, 3]        |      [7, 9]
+B     [2, 4, 6]     |      [8]
+We want the left side to contain approximately half of all elements.
+For the partition to be correct:
+max(left side) <= min(right side)
+More specifically:
+Aleft <= Bright
+Bleft <= Aright
+When these two conditions are true, we found the correct partition.
+5. Why Search Only One Array?
+Suppose:
+A = [1, 3]
+B = [2, 4, 5, 6, 7]
+We choose the smaller array A for Binary Search.
+Let:
+m = len(A)
+n = len(B)
+We search:
+partitionA = 0 ... m
+Then automatically calculate:
+partitionB = required_left_elements - partitionA
+This means we only need one Binary Search.
+6. Partition Formula
+Total number of elements:
+m + n
+Number of elements required on the left:
+(m + n + 1) // 2
+Therefore:
+partitionB = (m+n+1)//2 - partitionA
+Why +1?
+It makes the formula work correctly for both odd and even total sizes.
+This is a very important interview point.
+7. Four Important Values
+Suppose:
+A = [1, 3 | 7, 9]
+Then:
+Aleft  = 3
+Aright = 7
+For:
+B = [2, 4, 6 | 8]
+we have:
+Bleft  = 6
+Bright = 8
+We check:
+Aleft <= Bright
+3 <= 8 
+
+Bleft <= Aright
+6 <= 7 
+Therefore partition is correct.
+8. Boundary Problem
+What if partition is at the beginning?
+A = [ | 1, 3, 5]
+There is no Aleft.
+We use:
+float('-inf')
+So:
+Aleft = -infinity
+Similarly, if partition is at the end:
+A = [1, 3, 5 |]
+There is no Aright.
+We use:
+float('inf')
+So:
+Aright = infinity
+This makes boundary cases very easy.
+9. Complete Algorithm
+
+Step 1
+Make sure the first array is smaller.
+if len(A) > len(B):
+    A, B = B, A
+
+Step 2
+Binary search on A.
+
+Step 3
+Calculate partition of B.
+
+Step 4
+Calculate:
+Aleft
+Aright
+Bleft
+Bright
+
+Step 5
+Check whether partition is valid.
+If:
+Aleft <= Bright
+AND
+Bleft <= Aright
+we found the answer.
+
+Step 6
+If:
+Aleft > Bright
+we have taken too many elements from A.
+Move left:
+high = partitionA - 1
+Otherwise:
+Bleft > Aright
+We need more elements from A.
+Move right:
+low = partitionA + 1
+
+"""
+
+
+def find_median_sorted_arrays(nums1, nums2):
+
+    # Always binary search on the smaller array
+    if len(nums1) > len(nums2):
+        nums1, nums2 = nums2, nums1
+
+    m = len(nums1)
+    n = len(nums2)
+
+    low = 0
+    high = m
+
+    while low <= high:
+
+        partition1 = (low + high) // 2
+
+        partition2 = (m + n + 1) // 2 - partition1
+
+        # Left and right values of nums1
+        if partition1 == 0:
+            maxLeft1 = float('-inf')
+        else:
+            maxLeft1 = nums1[partition1 - 1]
+
+        if partition1 == m:
+            minRight1 = float('inf')
+        else:
+            minRight1 = nums1[partition1]
+
+        # Left and right values of nums2
+        if partition2 == 0:
+            maxLeft2 = float('-inf')
+        else:
+            maxLeft2 = nums2[partition2 - 1]
+
+        if partition2 == n:
+            minRight2 = float('inf')
+        else:
+            minRight2 = nums2[partition2]
+
+        # Correct partition
+        if maxLeft1 <= minRight2 and maxLeft2 <= minRight1:
+
+            # Odd total
+            if (m + n) % 2 == 1:
+                return max(maxLeft1, maxLeft2)
+
+            # Even total
+            return (
+                max(maxLeft1, maxLeft2)
+                + min(minRight1, minRight2)
+            ) / 2
+
+        # Too many elements taken from nums1
+        elif maxLeft1 > minRight2:
+            high = partition1 - 1
+
+        # Too few elements taken from nums1
+        else:
+            low = partition1 + 1
+
+    raise ValueError("Input arrays must be sorted")
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

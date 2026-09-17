@@ -1052,3 +1052,250 @@ def find_median_sorted_arrays(nums1, nums2):
     raise ValueError("Input arrays must be sorted")
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+
+
+Topic : Advanced Binary search Problems 
+
+
+
+ Binary Search — Topic 18: Advanced Binary Search Problems
+ Final topic of our Binary Search module!
+You've already learned the core patterns. Now we'll combine them into hard interview + GATE-style problems.
+The most important idea is:
+Binary Search is not only for finding an element. It can search for a position, boundary, or even the answer itself.
+
+1. Advanced Binary Search Patterns
+You should now recognize these patterns:
+Pattern	Example
+Exact Search	Find target
+Lower Bound	First >= target
+Upper Bound	First > target
+Rotated Search	Search in rotated array
+Peak Search	Find local maximum
+Answer Search	Minimize/maximize a value
+Partition	Median of two arrays
+Matrix Search	Search sorted matrix
+
+
+The most powerful pattern is:
+🔥 Binary Search on Answer
+Instead of asking:
+"Where is the target?"
+
+we ask:
+"Can this answer work?"
+
+Then use Binary Search over possible answers.
+2. Problem 1 — Allocate Books
+Problem
+You have books with pages:
+[12, 34, 67, 90]
+There are:
+2 students
+Each student must receive contiguous books.
+We want to minimize the maximum pages assigned to any student.
+Example
+Possible allocation:
+Student 1 → [12, 34, 67]
+Student 2 → [90]
+Pages:
+Student 1 = 113
+Student 2 = 90
+Maximum = 113
+Another allocation:
+Student 1 → [12, 34]
+Student 2 → [67, 90]
+Pages:
+46
+157
+Maximum = 157
+So we want the minimum possible maximum.
+3. Binary Search Range
+Minimum possible answer:
+max(arr)
+because somebody must receive the largest book.
+Maximum possible answer:
+sum(arr)
+because one student could theoretically receive everything.
+Therefore:
+low = max(arr)
+high = sum(arr)
+4. Feasibility Function
+For a guessed maximum:
+mid = 113
+we ask:
+Can we distribute all books among 2 students such that nobody gets more than 113 pages?
+
+If yes:
+113 is possible
+Try a smaller answer.
+If no:
+113 is impossible
+Try a larger answer.
+
+"""
+
+def can_allocate(books, students, limit):
+    count = 1
+    pages = 0
+
+    for book in books:
+
+        if pages + book <= limit:
+            pages += book
+        else:
+            count += 1
+            pages = book
+
+    return count <= students
+
+
+def allocate_books(books, students):
+
+    if students > len(books):
+        return -1
+
+    low = max(books)
+    high = sum(books)
+    answer = high
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        if can_allocate(books, students, mid):
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return answer
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+
+Binary Search on Distance
+Here:
+low = 1
+high = max_position - min_position
+For every distance mid:
+Can we place all cows with at least mid distance apart?
+
+If yes:
+answer = mid
+low = mid + 1
+We want the maximum valid answer.
+
+"""
+def can_place(stalls, cows, distance):
+
+    count = 1
+    last_position = stalls[0]
+
+    for i in range(1, len(stalls)):
+
+        if stalls[i] - last_position >= distance:
+            count += 1
+            last_position = stalls[i]
+
+            if count == cows:
+                return True
+
+    return False
+
+
+def aggressive_cows(stalls, cows):
+
+    stalls.sort()
+
+    low = 1
+    high = stalls[-1] - stalls[0]
+    answer = 0
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        if can_place(stalls, cows, mid):
+            answer = mid
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return answer
+
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+
+Capacity to Ship Packages
+
+Given:
+weights = [1,2,3,4,5,6,7,8,9,10]
+Ship all packages within:
+5 days
+Packages must remain in order.
+Find the minimum ship capacity.
+Search Range
+Minimum capacity:
+max(weights)
+because the ship must carry the heaviest package.
+Maximum:
+sum(weights)
+Feasibility
+For a capacity mid, calculate how many days are required.
+If:
+days <= required_days
+capacity is valid.
+Then try smaller capacity.
+
+
+
+"""
+
+def days_required(weights, capacity):
+
+    days = 1
+    current = 0
+
+    for weight in weights:
+
+        if current + weight <= capacity:
+            current += weight
+        else:
+            days += 1
+            current = weight
+
+    return days
+
+
+def ship_within_days(weights, days):
+
+    low = max(weights)
+    high = sum(weights)
+    answer = high
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        if days_required(weights, mid) <= days:
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return answer
+
+print("------------------------------Vivek Learning DSA Python----------------------------------------")

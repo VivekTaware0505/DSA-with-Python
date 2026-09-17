@@ -165,3 +165,52 @@ Peak in Mountain Array
 Find Single Element in Sorted Array
 Magnetic Force Between Balls
 Minimize Maximum Distance
+
+
+Interview Problem Classification
+
+| Problem | Pattern |
+|---|---|
+| Binary Search | Exact search |
+| First occurrence | Lower boundary |
+| Last occurrence | Upper boundary |
+| Rotated array | Modified Binary Search |
+| Peak element | Slope-based |
+| Square root | Answer search |
+| Koko | Minimum answer |
+| Allocate Books | Minimum maximum |
+| Aggressive Cows | Maximum minimum |
+| Ship Packages | Minimum capacity |
+| Split Array | Minimum maximum |
+| Bouquets | Minimum day |
+| K-th Missing | Monotonic count |
+| Median of Arrays | Partition |
+
+
+
+
+
+
+
+
+
+Binary Search - coverd Topics
+
+✅ 01. Introduction
+✅ 02. Iterative Binary Search
+✅ 03. Recursive Binary Search
+✅ 04. Binary Search Template
+✅ 05. Lower Bound
+✅ 06. Upper Bound
+✅ 07. Floor & Ceil
+✅ 08. First & Last Occurrence
+✅ 09. Count Occurrences
+✅ 10. Search Insert Position
+✅ 11. Search in Rotated Sorted Array
+✅ 12. Find Minimum in Rotated Sorted Array
+✅ 13. Find Peak Element
+✅ 14. Square Root using Binary Search
+✅ 15. Binary Search on Answer
+✅ 16. Binary Search in 2D Matrix
+✅ 17. Median of Two Sorted Arrays
+✅ 18. Advanced Binary Search Problems

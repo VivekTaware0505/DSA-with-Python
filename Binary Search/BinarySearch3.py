@@ -559,5 +559,132 @@ def integer_sqrt(n):
     return answer
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+"""
+Topic : Binary Search on Answer
+
+
+Normal Binary Search vs Binary Search on Answer
+Normal Binary Search
+You have:
+[10, 20, 30, 40, 50]
+and search for:
+30
+You search among array elements.
+Binary Search on Answer
+Suppose the answer could be anywhere between:
+1 → 100
+We don't know the exact answer.
+Instead of trying:
+1, 2, 3, 4, 5, ...
+we use Binary Search:
+1 → 50 → 75 → 62 → ...
+We repeatedly ask:
+Is this candidate answer possible?
+
+This is called a feasibility check.
+2. The Most Important Pattern 
+Binary Search on Answer generally looks like:
+Find possible answer range
+          ↓
+       low, high
+          ↓
+        mid
+          ↓
+ Is mid a valid answer?
+      ↙       ↘
+    YES        NO
+     ↓          ↓
+ move one     move other
+ direction    direction
+The key is that the feasibility condition must be monotonic.
+3. What Does Monotonic Mean?
+Suppose we test possible answers:
+1  2  3  4  5  6  7  8  9  10
+N  N  N  N  Y  Y  Y  Y  Y  Y
+Here:
+N = Not possible
+Y = Possible
+There is a clear transition:
+NOT POSSIBLE → POSSIBLE
+Binary Search can find that transition efficiently.
+Another pattern can be:
+Y Y Y Y N N N N
+Both are suitable.
+4. Classic Example — Koko Eating Bananas 
+This is a famous Binary Search on Answer problem.
+Suppose:
+piles = [3, 6, 7, 11]
+Koko has:
+h = 8 hours
+She must eat all bananas within 8 hours.
+Find the minimum eating speed.
+5. What Is the Answer Range?
+The slowest possible speed is:
+1 banana/hour
+The fastest speed we need is:
+max(piles)
+which is:
+11
+Therefore:
+low = 1
+high = 11
+Notice:
+We are Binary Searching the speed, not the array.
+
+6. Feasibility Check
+Suppose speed:
+k = 4
+For each pile:
+3 bananas → 1 hour
+6 bananas → 2 hours
+7 bananas → 2 hours
+11 bananas → 3 hours
+Total:
+1 + 2 + 2 + 3 = 8 hours
+So speed 4 is possible.
+7. Formula for Hours
+For a pile of p bananas and speed k:
+hours = ceil(p / k)
+In Python, we can calculate ceiling division using:
+(p + k - 1) // k
+For example:
+(11 + 4 - 1) // 4
+gives:
+3
+"""
+
+def can_finish(piles, h, speed):
+    hours = 0
+
+    for bananas in piles:
+        hours += (bananas + speed - 1) // speed
+
+    return hours <= h
+
+
+def min_eating_speed(piles, h):
+    low = 1
+    high = max(piles)
+    answer = high
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if can_finish(piles, h, mid):
+            answer = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return answer
+
+
+piles = [3, 6, 7, 11]
+h = 8
+
+print("Minimum speed:", min_eating_speed(piles, h))
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

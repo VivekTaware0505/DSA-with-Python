@@ -177,3 +177,56 @@ current = head
 while current is not None:
     print(current.data)
     current = current.next
+
+
+
+
+
+"""
+
+13. Types of Linked Lists
+We'll study these later in detail.
+1. Singly Linked List
+10 → 20 → 30 → None
+Each node points forward.
+
+2. Doubly Linked List
+None ← 10 ⇄ 20 ⇄ 30 → None
+Each node has:
+previous + data + next
+
+3. Circular Linked List
+10 → 20 → 30
+↑         ↓
+└─────────┘
+The last node points back to the first node.
+
+
+"""
+
+"""
+
+problem : 1 : Try to predict the output:
+
+"""
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+a = Node(5)
+b = Node(10)
+c = Node(15)
+
+a.next = b
+b.next = c
+
+head = a
+
+current = head
+
+while current:
+    print(current.data, end=" ")
+    current = current.next

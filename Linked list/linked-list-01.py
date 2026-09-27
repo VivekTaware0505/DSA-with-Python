@@ -237,10 +237,166 @@ while current:
 
 
 
+print("-------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 
 
+"""
 
+
+Topic 2 : Node structure & Reference in python 
+
+
+1. What is a Node?
+A Node is an object that stores two main things:
+DATA + REFERENCE TO NEXT NODE
+Visually:
+┌──────────┬──────────┐
+│   data   │   next   │
+└──────────┴──────────┘
+For example:
+┌──────┬──────┐
+│  10  │   ●──┼────→ next node
+└──────┴──────┘
+In Python:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+2. Understanding self.data
+When we write:
+node = Node(10)
+
+the value 10 gets stored in:
+node.data
+
+Example:
+print(node.data)
+
+Output:
+10
+So:
+node
+ ↓
+┌──────┬──────┐
+│  10  │ None │
+└──────┴──────┘
+3. Understanding self.next
+Initially:
+node = Node(10)
+
+we have:
+node.next = None
+That means:
+This node currently doesn't point to another node.
+
+[10 | None]
+Later, we can connect it to another node.
+4. Connecting Nodes
+Create two nodes:
+a = Node(10)
+b = Node(20)
+
+Initially:
+a → [10 | None]
+
+b → [20 | None]
+Now:
+a.next = b
+
+means:
+a
+↓
+[10 | ●] ─────→ [20 | None]
+                 ↑
+                 b
+So:
+a.next
+
+is a reference to object b.
+5. Important: next Does NOT Store the Data
+This is a common beginner confusion.
+Suppose:
+a = Node(10)
+b = Node(20)
+
+a.next = b
+
+Then:
+a.data
+
+is:
+10
+while:
+a.next.data
+
+is:
+20
+Because:
+a.next
+  ↓
+ b
+  ↓
+data = 20
+6. Understanding a.next.data
+This is extremely important.
+Consider:
+a
+↓
+[10 | ●] → [20 | ●] → [30 | None]
+            ↑
+            b
+Then:
+a.data
+
+→ 10
+a.next.data
+
+→ 20
+a.next.next.data
+
+→ 30
+And:
+a.next.next.next
+
+→ None
+So:
+a
+ ↓
+a.next
+ ↓
+a.next.next
+ ↓
+a.next.next.next
+moves one node at a time.
+
+
+"""
+
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+first = Node(10)
+second = Node(20)
+third = Node(30)
+
+first.next = second
+second.next = third
+
+head = first
+
+
+current = head
+
+while current is not None:
+    print(current.data)
+    current = current.next
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")

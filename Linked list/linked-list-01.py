@@ -400,6 +400,78 @@ while current is not None:
 
 
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
+
+
+
+"""
+
+Topic 3 : Creating a singly linked List
+
+
+
+
+
+1. What is a Singly Linked List?
+A Singly Linked List is a collection of nodes where every node contains:
+DATA + NEXT
+
+and each node points only to the next node.
+Example:
+head
+ ↓
+[10 | ●] → [20 | ●] → [30 | ●] → [40 | None]
+
+The last node points to:
+None
+
+
+That's why it is called singly linked: each node has only one link to another node.
+2. Node Class
+First, we need our Node.
+class Node:    def __init__(self, data):        self.data = data        self.next = None
+
+
+When we create:
+node = Node(10)
+
+
+we get:
+[10 | None]
+
+3. Why Create a LinkedList Class?
+Previously, we manually did:
+a = Node(10)b = Node(20)c = Node(30)a.next = bb.next = c
+
+
+This works, but it's not convenient.
+Imagine having 1,000 nodes.
+We don't want:
+node1
+node2
+node3
+...
+node1000
+
+Instead, we'll create a LinkedList class that manages the nodes.
+4. Basic LinkedList Class
+
+
+
+"""
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+
+
+
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
 print("------------------------------Vivek Learning DSA Python----------------------------------------")
